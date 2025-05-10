@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nearest Odd Number</title>
+</head>
+<body>
+  <h2>Find Nearest Odd Number</h2>
+  <input type="number" id="numberInput" placeholder="Enter a number">
+  <button onclick="findNearestOdd()">Submit</button>
+  <p id="result"></p>
+
+  <script>
+    function findNearestOdd() {
+      let num = parseInt(document.getElementById("numberInput").value);
+
+      if (isNaN(num)) {
+        document.getElementById("result").innerText = "Please enter a valid number.";
+        return;
+      }
+
+      let nearestOdd;
+      if (num % 2 === 0) {
+        // Choose closest odd number (preferring lower)
+        nearestOdd = (num > 0) ? num - 1 : num + 1;
+      } else {
+        nearestOdd = num;
+      }
+
+      document.getElementById("result").innerText = "Nearest odd number: " + nearestOdd;
+    }
+  </script>
+</body>
+</html>
