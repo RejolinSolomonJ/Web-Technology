@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Find Maximum Number</title>
+</head>
+<body>
+
+  <h2>Find the Maximum of Two Numbers</h2>
+
+  <label>Enter first number:</label>
+  <input type="number" id="num1" placeholder="First number">
+  <br><br>
+
+  <label>Enter second number:</label>
+  <input type="number" id="num2" placeholder="Second number">
+  <br><br>
+
+  <button onclick="findMax()">Get Maximum</button>
+  <br><br>
+
+  <div id="result"></div>
+
+  <script>
+    function findMax() {
+      const n1 = parseFloat(document.getElementById('num1').value);
+      const n2 = parseFloat(document.getElementById('num2').value);
+
+      if (isNaN(n1) || isNaN(n2)) {
+        document.getElementById('result').innerText = "Please enter valid numbers.";
+        return;
+      }
+
+      const max = (n1 > n2) ? n1 : n2;
+      document.getElementById('result').innerText = "Maximum number is: " + max;
+    }
+  </script>
+
+</body>
+</html>
