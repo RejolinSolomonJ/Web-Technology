@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Number Operations</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .output {
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>JavaScript Number Operations</h2>
+
+  <!-- Input Fields for User -->
+  <label for="base">Base (exponentiation):</label>
+  <input type="number" id="base" placeholder="Enter base"><br><br>
+
+  <label for="exponent">Exponent (exponentiation):</label>
+  <input type="number" id="exponent" placeholder="Enter exponent"><br><br>
+
+  <label for="decimalValue">Decimal Value:</label>
+  <input type="number" id="decimalValue" step="any" placeholder="Enter a decimal value"><br><br>
+
+  <label for="numberToString">Number to String:</label>
+  <input type="number" id="numberToString" placeholder="Enter a number"><br><br>
+
+  <button onclick="performOperations()">Submit</button>
+
+  <!-- Output -->
+  <div class="output" id="result"></div>
+
+  <script>
+    function performOperations() {
+      // Get user input values
+      var base = document.getElementById('base').value;
+      var exponent = document.getElementById('exponent').value;
+      var decimalValue = document.getElementById('decimalValue').value;
+      var numberToString = document.getElementById('numberToString').value;
+
+      // Check if inputs are valid numbers
+      if (base === "" || exponent === "" || decimalValue === "" || numberToString === "") {
+        document.getElementById('result').innerHTML = "Please enter all values.";
+        return;
+      }
+
+      base = Number(base);
+      exponent = Number(exponent);
+      decimalValue = Number(decimalValue);
+      numberToString = Number(numberToString);
+
+      // 1. Exponential value
+      var exponentialValue = Math.pow(base, exponent);
+
+      // 2. Limit the number of decimal places (2 decimal places)
+      var limitedDecimal = decimalValue.toFixed(2);
+
+      // 3. Convert the number to a string
+      var numberAsString = numberToString.toString();
+
+      // 4. Return Negative Infinity
+      var negativeInfinity = Number.NEGATIVE_INFINITY;
+
+      // Display results in the 'result' div
+      document.getElementById('result').innerHTML = `
+        <strong>1. Exponential Value (${base}^${exponent}):</strong> ${exponentialValue}<br>
+        <strong>2. Limited to 2 Decimal Places:</strong> ${limitedDecimal}<br>
+        <strong>3. Number as String (${numberToString}):</strong> "${numberAsString}"<br>
+        <strong>4. Negative Infinity:</strong> ${negativeInfinity}
+      `;
+    }
+  </script>
+
+</body>
+</html>
